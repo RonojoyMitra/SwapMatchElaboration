@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour
 {
     public GameObject _PlayerPrefab;
     public GameObject _Player;
+    public GameObject Enemy;
     public int xposition = 3;
     public int yposition = 0;
 
@@ -22,21 +23,25 @@ public class PlayerManager : MonoBehaviour
         {
             xposition--;
             _Player.transform.position = new Vector3(xposition, yposition);
+            EnemyMove();
         }
         if (Input.GetKeyDown(KeyCode.RightArrow) && xposition < 6)
         {
             xposition++;
             _Player.transform.position = new Vector3(xposition, yposition);
+            EnemyMove();
         }
         if (Input.GetKeyDown(KeyCode.UpArrow) && yposition < 9)
         {
             yposition++;
             _Player.transform.position = new Vector3(xposition, yposition);
+            EnemyMove();
         }
         if (Input.GetKeyDown(KeyCode.DownArrow) && yposition > 0)
         {
             yposition--;
             _Player.transform.position = new Vector3(xposition, yposition);
+            EnemyMove();
         }
         if (Input.GetKey(KeyCode.RightShift) && Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -44,6 +49,7 @@ public class PlayerManager : MonoBehaviour
             {
                 yposition = yposition + 2;
                 _Player.transform.position = new Vector3(xposition, yposition);
+                EnemyMove();
             }
         }
         if (Input.GetKey(KeyCode.RightShift) && Input.GetKeyDown(KeyCode.LeftArrow))
@@ -52,6 +58,7 @@ public class PlayerManager : MonoBehaviour
             {
                 yposition = yposition + 2;
                 _Player.transform.position = new Vector3(xposition, yposition);
+                EnemyMove();
             }
         }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.RightArrow))
@@ -60,6 +67,7 @@ public class PlayerManager : MonoBehaviour
             {
                 yposition = yposition - 2;
                 _Player.transform.position = new Vector3(xposition, yposition);
+                EnemyMove();
             }
         }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.LeftArrow))
@@ -68,6 +76,7 @@ public class PlayerManager : MonoBehaviour
             {
                 yposition = yposition - 2;
                 _Player.transform.position = new Vector3(xposition, yposition);
+                EnemyMove();
             }
         }
     }
@@ -76,5 +85,10 @@ public class PlayerManager : MonoBehaviour
     {
         _Player = Instantiate(_PlayerPrefab);
         _Player.transform.position = new Vector3(xposition, yposition);
+    }
+
+    void EnemyMove()
+    {
+        EnemyScript.Instance.EnemyTurn();
     }
 }

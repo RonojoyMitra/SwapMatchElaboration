@@ -143,6 +143,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coinPrefab: {fileID: 6985324643209193746, guid: 976350547dd4b8f4dbd6992402fbde58,
     type: 3}
+  _GatePrefab: {fileID: 3397207664914448442, guid: b257a24cceed26f48b99eace941404fc,
+    type: 3}
 --- !u!4 &385999944
 Transform:
   m_ObjectHideFlags: 0
@@ -362,6 +364,7 @@ MonoBehaviour:
   _PlayerPrefab: {fileID: 4410041286255025744, guid: af57ad8bf7037e44a8b3110885b59ae8,
     type: 3}
   _Player: {fileID: 4410041286255025744, guid: af57ad8bf7037e44a8b3110885b59ae8, type: 3}
+  Enemy: {fileID: 0}
   xposition: 3
   yposition: 0
 --- !u!4 &1574571793
